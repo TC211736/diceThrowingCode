@@ -19,12 +19,12 @@ public class Main {
         }
 
         for (Map.Entry<String, Integer> val : hm.entrySet()) {
-            System.out.println("Element " + val.getKey() + " " + "occurs" + ": " + val.getValue() + " times");
+            System.out.println("Side " + val.getKey() + " " + "occurs" + ": " + val.getValue() + " times");
         }
     }
 
-    
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
         System.out.println("How many sides does your dice have?");
 
@@ -34,11 +34,18 @@ public class Main {
 
         int diceThrow = input.nextInt();
         Random random = new Random();
-
+        ArrayList<String> list = new ArrayList<String>();
 
         for (int i = 0; i <= diceThrow; i++) {
-            System.out.println("Your dice roll is " + random.nextInt(diceSides));
-        }
 
+            int valueOfDice = random.nextInt(diceSides);
+            System.out.println("Your dice roll is " + valueOfDice);
+
+            String diceList = Integer.toString(valueOfDice);
+
+            list.add(diceList);
+
+        }
+        tally(list);
     }
 }
